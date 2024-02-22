@@ -15,19 +15,6 @@ function App() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    // if (qrCodeRef.current) {
-
-    //   html2canvas(qrCodeRef)
-    //     .then((canvas) => {
-    //       const a = document.createElement('a');
-    //       a.href = canvas.toDataURL();
-    //       a.download = 'qrcode.png';
-    //       a.click();
-    //     })
-
-
-    // }
   }
 
   return (
