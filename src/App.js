@@ -6,6 +6,7 @@ import { useRef, useState } from 'react';
 function App() {
   const [url, setUrl] = useState('https://localhost');
   const qrCodeRef = useRef(null);
+  const [size, setSize] = useState(125)
 
   const handleDonwload = () => {
     const canvas = document.querySelector('.HpQrcode > canvas');
@@ -21,7 +22,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className='HpQrcode' ref={qrCodeRef}>
-          <QRCode value={url} />
+          <QRCode value={url} size={size} imageSettings={{width: 5}} />
         </div>
         <p>
           Insira sua URL e a imagem irá aparecer acima
@@ -46,6 +47,15 @@ function App() {
         >
           Baixar
         </button>
+        <br/>
+        <div>
+          <label>Tamanho: </label>&nbsp;&nbsp;
+
+          <input type="range" min="1" max="300" onChange={e => setSize(Number(e.target.value))} />
+        </div>
+        <div>
+          <label>Valor: {size}</label>
+        </div>
       </header>
     </div>
   );
